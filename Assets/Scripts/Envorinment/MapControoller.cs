@@ -5,32 +5,32 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    [SerializeField] List<GameObject> terrainChunks;
-    [SerializeField] GameObject player;
-    [SerializeField] float checkerRadius;
-    Vector3 notTerrainPosition;
-    [SerializeField] LayerMask terrain;
+    [SerializeField] private List<GameObject> terrainChunks;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float checkerRadius;
+    private Vector3 notTerrainPosition;
+    [SerializeField] private LayerMask terrain;
     [HideInInspector] public GameObject currentChunk;
-    PlayerMovement playerMovement;
+    private PlayerMovement playerMovement;
 
     [Header("Optimization")]
-    [SerializeField] List<GameObject> spawnedChunks;
-    GameObject latestChunk;
-    [SerializeField]float maxOptimizationDistance;
-    float optimizationDistance;
-    float optimizerCooldown;
-    [SerializeField] float optimizerCooldownDuration;
-    void Start()
+    private List<GameObject> spawnedChunks;
+    private GameObject latestChunk;
+    [SerializeField]private float maxOptimizationDistance;
+    private float optimizationDistance;
+    private float optimizerCooldown;
+    [SerializeField] private float optimizerCooldownDuration;
+    private void Start()
     {
         playerMovement=FindObjectOfType<PlayerMovement>();
     }
-    void Update()
+    private void Update()
     {
         CheckChunk();
         OptimizeChunk();
     }
 
-    void CheckChunk()
+    private void CheckChunk()
     {
         if (!currentChunk) return;
         if(playerMovement.Direction.x>0 && playerMovement.Direction.y == 0) //right
@@ -98,14 +98,14 @@ public class MapController : MonoBehaviour
             }
         }
     }
-    void SpawnChunk()
+    private void SpawnChunk()
     {
         int random = Random.Range(0,terrainChunks.Count);
         latestChunk = Instantiate(terrainChunks[random], notTerrainPosition,Quaternion.identity);
         spawnedChunks.Add(latestChunk);
     }
 
-    void OptimizeChunk()
+    private void OptimizeChunk()
     {
         optimizerCooldown -= Time.deltaTime;
         if (optimizerCooldown <= 0f)

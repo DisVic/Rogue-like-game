@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    Animator animator;
-    PlayerMovement playerMovement;
-    SpriteRenderer spriteRenderer;
+    private Animator animator;
+    private PlayerMovement playerMovement;
+    private SpriteRenderer spriteRenderer;
 
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void Update()
     {
         if (playerMovement.Direction.x != 0 || playerMovement.Direction.y != 0)
         {
@@ -26,5 +26,5 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("IsMoving", false);
     }
 
-    void CheckSpriteDirection() => spriteRenderer.flipX = (playerMovement.lastHorVector < 0) ? true : false;
+    private void CheckSpriteDirection() => spriteRenderer.flipX = (playerMovement.lastHorVector < 0) ? true : false;
 }

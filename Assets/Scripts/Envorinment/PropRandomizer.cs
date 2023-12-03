@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PropRandomizer : MonoBehaviour
 {
-    [SerializeField]List<GameObject> propSpawnPoint;
-    [SerializeField]List<GameObject> propPrefabs;
+    [SerializeField]private List<GameObject> propSpawnPoint;
+    [SerializeField]private List<GameObject> propPrefabs;
 
-    void Start()
+    private void Start()
     {
         SpawnProp();   
     }
-    void SpawnProp()
+    private void SpawnProp()
     {
         foreach (GameObject props in propSpawnPoint) 
         {

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ChunkTrigger : MonoBehaviour
 {
-    MapController mapController;
-    [SerializeField] GameObject targetMap;
-    void Start()
+    private MapController mapController;
+    [SerializeField] private GameObject targetMap;
+    private void Start()
     {
         mapController = FindObjectOfType<MapController>();
     }
