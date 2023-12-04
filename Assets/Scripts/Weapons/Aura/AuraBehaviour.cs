@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AuraBehaviour : MeleeWeaponBehaviour
 {
-    List<GameObject> markedEnemies;
+    private List<GameObject> markedEnemies;
     protected override void Start()
     {
         base.Start();
@@ -19,6 +19,15 @@ public class AuraBehaviour : MeleeWeaponBehaviour
             enemy.TakeDamage(currentDamage);
 
             markedEnemies.Add(collision.gameObject);
+        }
+        else if (collision.CompareTag("Prop"))
+        {
+            if (collision.TryGetComponent(out BreakableProps breakable) && !markedEnemies.Contains(collision.gameObject))
+            {
+                breakable.TakeDamage(currentDamage);
+
+                markedEnemies.Add(collision.gameObject);
+            }
         }
     }
 }

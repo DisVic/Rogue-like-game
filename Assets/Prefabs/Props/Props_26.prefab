@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5211749697323718787}
   - component: {fileID: 366606089961421262}
   - component: {fileID: 3672010243296633281}
+  - component: {fileID: -4813208711568358585}
+  - component: {fileID: -815422988864244062}
   m_Layer: 0
   m_Name: Props_26
   m_TagString: Untagged
@@ -212,3 +214,32 @@ CircleCollider2D:
   m_Offset: {x: -0.025802534, y: 0.041468304}
   serializedVersion: 2
   m_Radius: 0.08889779
+--- !u!114 &-4813208711568358585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306132257461140631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6c100b0cf593e4f94e900bcf9b1da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+--- !u!114 &-815422988864244062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306132257461140631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6810b548a9ad1094cae6fd58730fc480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: HealthPotion
+    item: {fileID: 5062902690403066211, guid: 57e9c86832530624ebae492627ce1071, type: 3}
+    dropRate: 35

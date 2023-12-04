@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    [SerializeField] private float moveSpeed;
     
     [HideInInspector] public float lastHorVector;
     [HideInInspector] public float lastVertVector;
-
-    private Rigidbody2D rb;
     private Vector2 direction;
     public Vector2 Direction { get => direction; }
 
     private Vector2 lastMovedVector;
     public Vector2 LastMovedVector { get => lastMovedVector; }
+
+    private Rigidbody2D rb;
+    [SerializeField] private HeroScriptableObject heroData;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if (direction.x != 0 && direction.y != 0) { lastMovedVector = new Vector2(lastHorVector, lastVertVector); }
     }
-
-    private void Move() => rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+    private void Move() => rb.velocity = new Vector2(direction.x * heroData.MoveSpeed, direction.y * heroData.MoveSpeed);
 
 }

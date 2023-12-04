@@ -26,8 +26,14 @@ public class EnemyStats : MonoBehaviour
         if(currentHP <= 0) { Die(); }
     }
 
-    private void Die()
+    private void Die() => Destroy(gameObject);
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerStats player = collision.gameObject.GetComponent<PlayerStats>();
+            player.TakeDamage(currentDamage);
+        }
     }
 }
