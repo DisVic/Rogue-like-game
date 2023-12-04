@@ -8,7 +8,17 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 {
     protected Vector3 direction;
     [SerializeField] protected float lifetimeOfProjectile;
+    [SerializeField] protected WeaponScriptableObject weaponData;
 
+    protected float currentDamage;
+    protected float currentSpeed;
+    protected float currentCooldownDuration;
+    protected int currentPierce;
+
+    private void Awake()
+    {
+        SetCurrentProjectileWeaponStats();
+    }
     protected virtual void Start()
     {
         Destroy(gameObject, lifetimeOfProjectile);
@@ -46,5 +56,29 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         }
         transform.localScale = scale;
         transform.rotation = Quaternion.Euler(rotation);
+    }
+
+    private void SetCurrentProjectileWeaponStats()
+    {
+        currentDamage = weaponData.Damage;
+        currentSpeed = weaponData.Speed;
+        currentCooldownDuration = weaponData.CooldownDuration;
+        currentPierce = weaponData.Pierce;
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            EnemyStats enemy = collision.GetComponent<EnemyStats>();
+            enemy.TakeDamage(currentDamage);
+            ReducePierce();
+        }
+    }
+
+    private void ReducePierce()
+    {
+        currentPierce--;
+        if (currentPierce <= 0) { Destroy(gameObject); }
     }
 }

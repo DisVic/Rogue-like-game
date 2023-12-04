@@ -13,7 +13,7 @@ public class AuraController : WeaponsController
     protected override void Attack()
     {
         base.Attack();
-        GameObject spawnedAura = Instantiate(weapon);
+        GameObject spawnedAura = Instantiate(WeaponData.Weapon);
         spawnedAura.transform.position = transform.position;
         spawnedAura.transform.parent = transform;
     }

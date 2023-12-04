@@ -6,16 +6,9 @@ using UnityEngine;
 public class WeaponsController : MonoBehaviour
 {
     [Header("Weapon stats")]
-    [SerializeField] protected GameObject weapon;
-    [SerializeField] protected float cooldownDuration;
+    [SerializeField] private WeaponScriptableObject weaponData;
+    public WeaponScriptableObject WeaponData { get => weaponData; }
     protected float currentCooldown;
-    [SerializeField] protected float speed;
-    public float Speed {  get { return speed; } }
-    [SerializeField] protected float damage;
-    public float Damage { get { return speed; } }
-    
-    [SerializeField] protected int pierce;
-    public int Pierce {  get { return pierce; } }
 
     protected PlayerMovement playerMovement;
     protected virtual void Start()
@@ -29,13 +22,13 @@ public class WeaponsController : MonoBehaviour
         CheckCooldown();
     }
 
-    protected void StartCooldown() => currentCooldown = cooldownDuration;
+    protected void StartCooldown() => currentCooldown = weaponData.CooldownDuration;
     protected void CheckCooldown()
     {
         currentCooldown-=Time.deltaTime;
         if(currentCooldown <= 0f) {Attack();}
     }
 
-    protected virtual void Attack() => currentCooldown = cooldownDuration;
+    protected virtual void Attack() => currentCooldown = weaponData.CooldownDuration;
 
 }

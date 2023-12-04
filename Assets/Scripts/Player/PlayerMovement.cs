@@ -8,15 +8,15 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
     
-    [HideInInspector]public float lastHorVector;
-    [HideInInspector]public float lastVertVector;
+    [HideInInspector] public float lastHorVector;
+    [HideInInspector] public float lastVertVector;
 
     private Rigidbody2D rb;
     private Vector2 direction;
-    public Vector2 Direction { get { return direction; } }
+    public Vector2 Direction { get => direction; }
 
     private Vector2 lastMovedVector;
-    public Vector2 LastMovedVector { get {  return lastMovedVector; } }
+    public Vector2 LastMovedVector { get => lastMovedVector; }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
