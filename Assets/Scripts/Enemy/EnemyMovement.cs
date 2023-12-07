@@ -15,6 +15,11 @@ public class EnemyMovement : MonoBehaviour
     {
         MoveToPlayer();
     }
-
-    private void MoveToPlayer() => transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyData.MoveSpeed * Time.deltaTime);
+        
+    private void MoveToPlayer()// переделать
+    {
+        transform.position = Vector2.MoveTowards(transform.position, 
+            player.transform.position, enemyData.MoveSpeed * Time.deltaTime);
+    }
+        
 }

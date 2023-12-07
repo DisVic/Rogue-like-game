@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     private float currentRecovery;
     private float currentProjectileSpeed;
 
-    [Header("Exp/level")]
+    [Header("Exp/level")]//в отдельный класс
     [SerializeField] private int exp = 0;
     [SerializeField] private int level = 1;
     [SerializeField] private int experienceCap;
@@ -57,7 +57,8 @@ public class PlayerStats : MonoBehaviour
 
     private void CheckLevel()
     {
-        if (exp >= experienceCap)
+        if (exp < experienceCap) return;
+        else
         {
             level++;
             exp -= experienceCap;
@@ -91,7 +92,8 @@ public class PlayerStats : MonoBehaviour
             currentHP -= damage;
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;
-            if (currentHP <= 0) { Die(); }
+            if (currentHP <= 0) 
+                Die();
         }
     }
 
@@ -100,10 +102,9 @@ public class PlayerStats : MonoBehaviour
     private void CheckInvincibleTimer()
     {
         if (invincibilityTimer > 0)
-        {
             invincibilityTimer -= Time.deltaTime;
-        }
-        else { isInvincible = false; }
+        else 
+            isInvincible = false;
     }
 
     public void RestoreHP(float amount)
@@ -111,7 +112,8 @@ public class PlayerStats : MonoBehaviour
         if (currentHP < heroData.MaxHealth)
         {
             currentHP += amount;
-            if (currentHP > heroData.MaxHealth) { currentHP = heroData.MaxHealth; }
+            if (currentHP > heroData.MaxHealth) 
+                currentHP = heroData.MaxHealth;            
         }
     }
 }

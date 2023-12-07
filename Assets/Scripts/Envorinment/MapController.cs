@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> terrainChunks;
+    [SerializeField] private List<GameObject> terrainChunks = new List<GameObject>(); 
     [SerializeField] private GameObject player;
     [SerializeField] private float checkerRadius;
     private Vector3 notTerrainPosition;
@@ -30,7 +30,7 @@ public class MapController : MonoBehaviour
         OptimizeChunk();
     }
 
-    private void CheckChunk()
+    private void CheckChunk()//переделать
     {
         if (!currentChunk) return;
         if(playerMovement.Direction.x>0 && playerMovement.Direction.y == 0) //right
@@ -105,7 +105,7 @@ public class MapController : MonoBehaviour
         spawnedChunks.Add(latestChunk);
     }
 
-    private void OptimizeChunk()
+    private void OptimizeChunk()//в отдельный класс
     {
         optimizerCooldown -= Time.deltaTime;
         if (optimizerCooldown <= 0f)

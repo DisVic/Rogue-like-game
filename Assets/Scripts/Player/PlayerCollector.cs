@@ -6,6 +6,7 @@ public class PlayerCollector : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out ICollactible collactible)) { collactible.Collect(); }
+        if(collision.TryGetComponent(out ICollactible collactible))
+            collactible.Collect(); 
     }
 }

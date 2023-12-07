@@ -25,7 +25,6 @@ public class AuraBehaviour : MeleeWeaponBehaviour
             if (collision.TryGetComponent(out BreakableProps breakable) && !markedEnemies.Contains(collision.gameObject))
             {
                 breakable.TakeDamage(currentDamage);
-
                 markedEnemies.Add(collision.gameObject);
             }
         }

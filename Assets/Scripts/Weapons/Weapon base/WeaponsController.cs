@@ -26,7 +26,8 @@ public class WeaponsController : MonoBehaviour
     protected void CheckCooldown()
     {
         currentCooldown-=Time.deltaTime;
-        if(currentCooldown <= 0f) {Attack();}
+        if(currentCooldown <= 0f) 
+            Attack();
     }
 
     protected virtual void Attack() => currentCooldown = weaponData.CooldownDuration;

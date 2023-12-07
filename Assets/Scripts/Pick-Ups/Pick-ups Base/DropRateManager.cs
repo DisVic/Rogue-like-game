@@ -16,16 +16,17 @@ public class DropRateManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        float random = UnityEngine.Random.Range(0f, 100f);
+        float random = Random.Range(0f, 100f);
         List<Drops> possibleDrop = new List<Drops> ();
 
         foreach(Drops rate in drops)
         {
-            if(random <= rate.dropRate) { possibleDrop.Add(rate); }
+            if(random <= rate.dropRate) 
+                possibleDrop.Add(rate); 
         }
         if(possibleDrop.Count > 0)
         {
-            Drops drops = possibleDrop[UnityEngine.Random.Range(0, possibleDrop.Count)];
+            Drops drops = possibleDrop[Random.Range(0, possibleDrop.Count)];
             Instantiate(drops.item, transform.position, Quaternion.identity);
         }
     }

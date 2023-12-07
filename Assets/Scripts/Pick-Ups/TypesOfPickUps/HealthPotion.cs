@@ -12,6 +12,4 @@ public class HealthPotion : MonoBehaviour, ICollactible
         player.RestoreHP(healthRestoration);
         Destroy(gameObject);
     }
-
-    
 }

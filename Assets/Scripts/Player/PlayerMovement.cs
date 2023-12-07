@@ -27,8 +27,11 @@ public class PlayerMovement : MonoBehaviour
     {
         InputMove();
     }
-    
-    private void FixedUpdate() => Move();
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
     private void InputMove()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -46,8 +49,11 @@ public class PlayerMovement : MonoBehaviour
             lastVertVector = direction.y;
             lastMovedVector = new Vector2(0f, lastVertVector);
         }
-        if (direction.x != 0 && direction.y != 0) { lastMovedVector = new Vector2(lastHorVector, lastVertVector); }
+        if (direction.x != 0 && direction.y != 0) 
+            lastMovedVector = new Vector2(lastHorVector, lastVertVector); 
     }
-    private void Move() => rb.velocity = new Vector2(direction.x * heroData.MoveSpeed, direction.y * heroData.MoveSpeed);
-
+    private void Move()
+    {
+        rb.velocity = new Vector2(direction.x * heroData.MoveSpeed, direction.y * heroData.MoveSpeed);
+    }
 }

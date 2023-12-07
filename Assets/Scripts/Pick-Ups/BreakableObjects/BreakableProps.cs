@@ -9,7 +9,8 @@ public class BreakableProps : MonoBehaviour
     public void TakeDamage(float damage)
     {
         hp -= damage;
-        if (hp <= 0) { BreakObject(); }
+        if (hp <= 0) 
+            BreakObject(); 
     }
 
     private void BreakObject() => Destroy(gameObject);

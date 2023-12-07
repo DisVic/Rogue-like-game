@@ -23,7 +23,8 @@ public class EnemyStats : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHP -= damage;
-        if(currentHP <= 0) { Die(); }
+        if(currentHP <= 0) 
+            Die();
     }
 
     private void Die() => Destroy(gameObject);

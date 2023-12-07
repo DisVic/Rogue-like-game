@@ -38,10 +38,14 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
             scale.x *= -1;
             scale.y *= -1;
         }
-        else if(dirx==0 && diry < 0) { scale.y *= -1;} //down
-        else if(dirx==0 && diry > 0) { scale.x *= -1;}//up
-        else if(dirx>0 && diry<0) { rotation.z = -90f; }//right down
-        else if(dirx>0 && diry > 0) { rotation.z = 0f; }//right up
+        else if(dirx==0 && diry < 0) 
+            scale.y *= -1; //down
+        else if(dirx==0 && diry > 0) 
+            scale.x *= -1;//up
+        else if(dirx>0 && diry<0) 
+            rotation.z = -90f;//right down
+        else if(dirx>0 && diry > 0) 
+            rotation.z = 0f;//right up
         else if(dirx<0 && diry > 0)//left down
         {
             scale.x *= -1;
@@ -87,6 +91,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     private void ReducePierce()
     {
         currentPierce--;
-        if (currentPierce <= 0) { Destroy(gameObject); }
+        if (currentPierce <= 0) 
+            Destroy(gameObject);    
     }
 }

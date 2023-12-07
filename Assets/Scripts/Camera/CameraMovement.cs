@@ -12,6 +12,9 @@ public class CameraMovement : MonoBehaviour
         TrackingPerson();
     }
 
-    private void TrackingPerson() => transform.position = target.position + offset;
+    private void TrackingPerson()
+    {
+        transform.position = target.position + offset;
+    }
 }
 

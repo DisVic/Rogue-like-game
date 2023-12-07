@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eye
       objectReference: {fileID: 0}
+    - target: {fileID: 3408012992981685270, guid: 81e3f955a0b90c24b847067ae4fe12d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5224921470222181121, guid: 81e3f955a0b90c24b847067ae4fe12d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.8429072

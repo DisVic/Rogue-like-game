@@ -12,5 +12,8 @@ public class SpearBehaviour : ProjectileWeaponBehaviour
     {
         CheckSpearPosition();
     }
-    private void CheckSpearPosition() => transform.position += direction * weaponData.Speed * Time.deltaTime;
+    private void CheckSpearPosition()
+    {
+        transform.position += direction * weaponData.Speed * Time.deltaTime;
+    }
 }
