@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3408012992981685270, guid: 81e3f955a0b90c24b847067ae4fe12d1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5224921470222181121, guid: 81e3f955a0b90c24b847067ae4fe12d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 1588448549}
   - component: {fileID: 1588448556}
   - component: {fileID: 1588448557}
+  - component: {fileID: 1588448559}
   - component: {fileID: 1588448558}
   - component: {fileID: 1588448555}
   m_Layer: 0
@@ -657,16 +658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroData: {fileID: 11400000, guid: 645d037cf941e4848a54d9942435f6fd, type: 2}
-  exp: 0
-  level: 1
-  experienceCap: 0
-  levelRanges:
-  - startLevel: 1
-    endLevel: 3
-    experienceCapIncrease: 100
-  - startLevel: 4
-    endLevel: 7
-    experienceCapIncrease: 150
   invincibilityDuration: 0.5
 --- !u!114 &1588448558
 MonoBehaviour:
@@ -680,6 +671,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80ef7c3a48077e4d946b18cddbfcc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1588448559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588448548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03304d0b4a8eda42b84e87bc24f49bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exp: 0
+  level: 1
+  experienceCap: 0
+  levelRanges:
+  - startLevel: 1
+    endLevel: 3
+    experienceCapIncrease: 100
+  - startLevel: 4
+    endLevel: 7
+    experienceCapIncrease: 150
+  - startLevel: 8
+    endLevel: 10
+    experienceCapIncrease: 175
 --- !u!1 &1793166660
 GameObject:
   m_ObjectHideFlags: 0

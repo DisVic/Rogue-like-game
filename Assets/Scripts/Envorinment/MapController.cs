@@ -64,5 +64,4 @@ public class MapController : MonoBehaviour
         int random = Random.Range(0,terrainChunks.Count);
         Instantiate(terrainChunks[random], notTerrainPosition,Quaternion.identity);
     }
-
 }
