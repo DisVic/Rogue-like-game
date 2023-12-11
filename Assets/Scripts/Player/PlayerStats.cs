@@ -12,20 +12,7 @@ public class PlayerStats : MonoBehaviour
     private float currentRecovery;
     private float currentProjectileSpeed;
 
-    [Header("Exp/level")]//в отдельный класс
-    [SerializeField] private int exp = 0;
-    [SerializeField] private int level = 1;
-    [SerializeField] private int experienceCap;
-
-    [System.Serializable]
-    private class LevelRange
-    {
-        public int startLevel;
-        public int endLevel;
-        public int experienceCapIncrease;
-    }
-
-    [SerializeField] private List<LevelRange> levelRanges;
+    
 
     [Header("I-Frames")]
     [SerializeField] private float invincibilityDuration;
@@ -37,43 +24,9 @@ public class PlayerStats : MonoBehaviour
         SetCurrnetHeroStats();
     }
 
-    private void Start()
-    {
-        InitializeEXPCap();
-    }
-
     private void Update()
     {
         CheckInvincibleTimer();
-    }
-
-    private void InitializeEXPCap() => experienceCap = levelRanges[0].experienceCapIncrease;
-
-    public void IncreaseEXP(int amount)
-    {
-        exp += amount;
-        CheckLevel();
-    }
-
-    private void CheckLevel()
-    {
-        if (exp < experienceCap) return;
-        else
-        {
-            level++;
-            exp -= experienceCap;
-
-            int experienceCapIncrease = 0;
-            foreach(LevelRange range in levelRanges)
-            {
-                if(level>=range.startLevel && level <= range.endLevel)
-                {
-                    experienceCapIncrease = range.experienceCapIncrease;
-                    break;
-                }
-            }
-            experienceCap += experienceCapIncrease;
-        }
     }
 
     private void SetCurrnetHeroStats()
@@ -97,7 +50,10 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void Die() => Destroy(gameObject);
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 
     private void CheckInvincibleTimer()
     {

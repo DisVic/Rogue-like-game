@@ -13,7 +13,7 @@ public class SpearController : WeaponsController
     {
         base.Attack();
         GameObject spawnedSpear = Instantiate(WeaponData.Weapon);
-        spawnedSpear.transform.position= transform.position;
+        spawnedSpear.transform.position = transform.position;
         spawnedSpear.GetComponent<SpearBehaviour>().CheckDirection(playerMovement.LastMovedVector);
     }
 }

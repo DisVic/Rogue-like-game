@@ -158,13 +158,11 @@ MonoBehaviour:
   - {fileID: 3004509691550942984, guid: caf7071d23d08d448af9698265873228, type: 3}
   - {fileID: 3004509691550942984, guid: 59bd789ed7ebac04aba7d3238d96c0d5, type: 3}
   player: {fileID: 1588448548}
-  checkerRadius: 0.5
+  checkerRadius: 0.3
   terrain:
     serializedVersion: 2
     m_Bits: 64
   currentChunk: {fileID: 0}
-  maxOptimizationDistance: 60
-  optimizerCooldownDuration: 2
 --- !u!4 &235725563
 Transform:
   m_ObjectHideFlags: 0

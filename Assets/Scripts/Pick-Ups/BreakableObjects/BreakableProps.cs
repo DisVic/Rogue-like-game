@@ -13,5 +13,9 @@ public class BreakableProps : MonoBehaviour
             BreakObject(); 
     }
 
-    private void BreakObject() => Destroy(gameObject);
+    private void BreakObject()
+    {
+        GetComponent<DropRateManager>()?.DropItem();
+        Destroy(gameObject);
+    }
 }

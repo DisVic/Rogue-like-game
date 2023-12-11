@@ -27,7 +27,11 @@ public class EnemyStats : MonoBehaviour
             Die();
     }
 
-    private void Die() => Destroy(gameObject);
+    private void Die()
+    {
+        GetComponent<DropRateManager>()?.DropItem();
+        Destroy(gameObject);
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {

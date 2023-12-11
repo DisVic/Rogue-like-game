@@ -14,7 +14,7 @@ public class DropRateManager : MonoBehaviour
 
     [SerializeField] private List<Drops> drops;
 
-    private void OnDestroy()
+    public void DropItem()
     {
         float random = Random.Range(0f, 100f);
         List<Drops> possibleDrop = new List<Drops> ();
