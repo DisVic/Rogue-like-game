@@ -20,7 +20,7 @@ public class MapController : MonoBehaviour
         CheckChunk();
     }
 
-    private void CheckChunk()//переделать
+    private void CheckChunk()
     {
         if (!currentChunk) return;
         if(playerMovement.Direction.x>0 && playerMovement.Direction.y == 0) //right

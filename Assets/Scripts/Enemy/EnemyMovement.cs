@@ -21,6 +21,4 @@ public class EnemyMovement : MonoBehaviour
         Transform target = player.transform;
         transform.position = Vector2.MoveTowards(transform.position, target.position, enemyData.MoveSpeed * Time.deltaTime);
     }
-     
-
 }
